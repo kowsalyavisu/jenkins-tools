@@ -1,15 +1,16 @@
-def call() {
+def call() {def call(String headSha, String repositoryUrl, String refspec) {
   checkout changelog: false,
     poll: false,
     scm: [
         $class: 'GitSCM',
-        branches: [[name: '*/master']],
+        branches: [[name: headSha]],
         doGenerateSubmoduleConfigurations: false,
         submoduleCfg: [],
         userRemoteConfigs: [[
                                 credentialsId: 'kowsalyavisu@gmail.com',
                                 name: 'origin',
-                                url: 'https://github.com/kowsalyavisu/lql.git'
+                                refspec: refspec,
+                                url: repositoryUrl
                             ]]
     ]
   }
