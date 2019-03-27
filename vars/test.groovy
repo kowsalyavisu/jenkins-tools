@@ -15,6 +15,10 @@ def call() {
                                   ]]
           ]
         }
+
+        stage('test') {
+          sh 'vi user_redshift.json'
+        }
       }
 }
 
