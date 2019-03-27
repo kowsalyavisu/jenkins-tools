@@ -1,4 +1,4 @@
-def call() {def call(String headSha, String repositoryUrl, String refspec) {
+def call(String headSha, String repositoryUrl, String refspec) {
   checkout changelog: false,
     poll: false,
     scm: [
