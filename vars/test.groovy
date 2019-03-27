@@ -5,7 +5,7 @@ def call() {
           poll: false,
           scm: [
               $class: 'GitSCM',
-              branches: {[[name: '*/master']]},
+              branches: [[name: '*/master']],
               doGenerateSubmoduleConfigurations: false,
               submoduleCfg: [],
               userRemoteConfigs: [[
