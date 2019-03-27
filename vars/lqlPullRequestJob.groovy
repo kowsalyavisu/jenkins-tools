@@ -10,7 +10,7 @@ def call() {
     }
 
     stage('test-lytics') {
-      lqlValidate(lytics_dev, "${env.testParam}")    
+      lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}")    
     }
   }
   catch (err) {
