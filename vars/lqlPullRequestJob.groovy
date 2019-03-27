@@ -1,9 +1,9 @@
 def call() {
   node {
     try {
-    //stage('SCM') {
-      //checkout('test') 
-    //}
+    stage('SCM') {
+      scmCheckout('test') 
+    }
 
     stage('test-lytics') {
       lqlValidate()    
