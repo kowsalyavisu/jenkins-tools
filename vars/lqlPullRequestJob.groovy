@@ -1,6 +1,3 @@
-
-import groovy.json.JsonOutput
-
 def call() {
   node {
     stage('SCM') {
