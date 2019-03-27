@@ -1,5 +1,7 @@
 def call() {
   node {
+
+    stage('prep') {
     checkout changelog: false,
       poll: false,
       scm: [
@@ -15,4 +17,5 @@ def call() {
       ]
 
     }
+  }
 }
