@@ -1,6 +1,9 @@
+
+import groovy.json.JsonOutput
+
 def call() {
   node {
-    stage('prep') {
+    stage('checkout') {
       checkout changelog: false,
           poll: false,
           scm: [
@@ -16,9 +19,18 @@ def call() {
           ]
         }
 
-        stage('test') {
-          sh 'vi user_redshift.json'
+        stage('test-lytics') {
+          def curlCommand = [
+              "curl",
+              "-X POST",
+              "-H 'Content-type: application/json'",
+              "-H 'Authorization: at.0324245c93ba580383bf52a5e8c50ff8.ebbe2a01aa043fc7f13a864255fc25da'",
+              "--data-binary @user_redshift.lql",
+              "https://api.lytics.io/api/query/_test?email=test@test.com&ucdmid=ucdmid"
+          ]
+          sh curlCommand.join(" ")
         }
       }
 }
+
 
