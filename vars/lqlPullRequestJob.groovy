@@ -2,7 +2,7 @@ def call() {
   node {
     try {
     stage('SCM') {
-      scmCheckout('test') 
+      scmCheckout() 
     }
 
     stage('test-lytics') {
