@@ -1,5 +1,6 @@
 def call() {
   node {
+    try {
     stage('SCM') {
       checkout('test') 
     }
@@ -8,6 +9,10 @@ def call() {
       lqlValidate()    
     }
   }
+  catch (err){
+
+  }
+}
         
 }
 
