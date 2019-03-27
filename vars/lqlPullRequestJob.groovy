@@ -1,7 +1,7 @@
 def call() {
   node {
     stage('SCM') {
-      checkout() 
+      checkout('test') 
     }
 
     stage('test-lytics') {

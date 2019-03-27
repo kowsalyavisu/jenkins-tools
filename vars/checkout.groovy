@@ -1,4 +1,4 @@
-def call() {
+def call(string test) {
   checkout changelog: false,
     poll: false,
     scm: [
