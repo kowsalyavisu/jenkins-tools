@@ -1,16 +1,16 @@
 def call() {
   node {
     try {
-    stage('SCM') {
-      checkout('test') 
-    }
+    //stage('SCM') {
+      //checkout('test') 
+    //}
 
     stage('test-lytics') {
       lqlValidate()    
     }
   }
-  catch (err){
-
+  catch (err) {
+    throw err
   }
 }
         
