@@ -1,6 +1,6 @@
  
 import groovy.json.JsonOutput
-call() {
+def call() {
     def curlCommand = [
         "curl --show-error --fail",
         "-XPOST 'https://api.lytics.io/api/query/_test?email=test@test.com&ucdmid=ucdmid'",
