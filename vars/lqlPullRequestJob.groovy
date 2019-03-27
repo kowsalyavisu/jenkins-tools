@@ -4,11 +4,11 @@ import groovy.json.JsonOutput
 def call() {
   node {
     stage('checkout') {
-      checkout();  
+      checkout() 
     }
 
     stage('test-lytics') {
-      lqlValidate();    
+      lqlValidate()    
     }
   }
         
