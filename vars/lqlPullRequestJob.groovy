@@ -3,7 +3,7 @@ import groovy.json.JsonOutput
 
 def call() {
   node {
-    stage('checkout') {
+    stage('SCM') {
       checkout() 
     }
 
