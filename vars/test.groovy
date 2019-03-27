@@ -21,7 +21,7 @@ def call() {
 
         stage('test-lytics') {
           def curlCommand = [
-              "curl -s",
+              "curl -s --fail",
               "-XPOST 'https://api.lytics.io/api/query/_test?email=test@test.com&ucdmid=ucdmid'",
               "-H 'Content-type: application/json'",
               "-H 'Authorization: at.0324245c93ba580383bf52a5e8c50ff8.ebbe2a01aa043fc7f13a864255fc25d'",
