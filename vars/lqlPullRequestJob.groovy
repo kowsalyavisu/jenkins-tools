@@ -11,6 +11,8 @@ def call() {
     }
 
     stage('test-lytics') {
+      sh "ls *.lql > listJsonFiles"
+      
       lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}", "${env.WORKSPACE}")    
     }
 

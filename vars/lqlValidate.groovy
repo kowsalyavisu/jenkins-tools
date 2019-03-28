@@ -1,8 +1,6 @@
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 def call(String token, String testParam, String fileName, String env) {
-
-    print("before calling method")
     def queryParam = getUserData(fileName, env)  
     def curlCommand = [
         "curl --show-error --fail",
