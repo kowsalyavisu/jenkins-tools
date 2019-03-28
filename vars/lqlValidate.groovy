@@ -24,7 +24,7 @@ def call(String token, String testParam, String fileName, String env) {
 
 
 @NonCPS
-def getUserData(String fileName) {
+def getUserData(String fileName, String env) {
   print(env)
    String fileContent = new File(fileName+".json").text
    def jsonSlurper = new JsonSlurper() 
