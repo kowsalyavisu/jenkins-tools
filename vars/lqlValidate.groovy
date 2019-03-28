@@ -29,7 +29,5 @@ def getUserData(String fileName, String env) {
    String fileContent = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/user_redshift.json").text
    def jsonSlurper = new JsonSlurper() 
    def resultJson = jsonSlurper.parseText(fileContent)
-   resultJson.each {
-      print “${it.key}”
-   }
+   print("result-->"+resultJson)
 }
