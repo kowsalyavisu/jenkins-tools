@@ -30,4 +30,6 @@ def getUserData(String fileName, String env) {
    def jsonSlurper = new JsonSlurper() 
    def resultJson = jsonSlurper.parseText(fileContent)
    print("result-->"+resultJson)
+   def res = resultJson.collect { it }.join('&')
+   print(res)
 }
