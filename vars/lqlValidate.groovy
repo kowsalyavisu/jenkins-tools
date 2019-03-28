@@ -30,5 +30,6 @@ def parseJson(String fileName){
   for ( prop in lazyMap ) {
       map[prop.key] = prop.value
   }
+  print(map)
   return map;
 }
