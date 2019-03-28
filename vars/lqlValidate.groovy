@@ -26,7 +26,7 @@ def call(String token, String testParam, String fileName) {
 def parseJson(String fileName){
   def fileContents = readFile fileName+".json"
   def lazyMap = new groovy.json.JsonSlurper().parseText(fileContents)
-  def map = [:]
+  def map = [=]
   for ( prop in lazyMap ) {
       map[prop.key] = prop.value
   }
