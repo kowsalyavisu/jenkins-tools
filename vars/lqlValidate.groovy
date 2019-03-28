@@ -27,7 +27,7 @@ def call(String token, String testParam, String fileName) {
 def getUserData(String fileName) {
    def fileContent = new File(fileName+'.json')
    def jsonSlurper = new JsonSlurper() 
-   def resultJson = jsonSlurper.parseText(fileContent)
+   def resultJson = jsonSlurper.parseText(readFile fileName+".json")
    resultJson.each {
       print “${it.key}”
    }
