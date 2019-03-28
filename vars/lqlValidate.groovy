@@ -25,9 +25,9 @@ def call(String token, String testParam, String fileName) {
 
 @NonCPS
 def getUserData(String fileName) {
-   def fileContent = new File(fileName+".json").getText('UTF-8')
+   def fileContent = readFile fileName+".json"
    def jsonSlurper = new JsonSlurper() 
-   def resultJson = jsonSlurper.parseText(fileContent)
+   def resultJson = jsonSlurper.parseText(fileContent.getText('UTF-8'))
    resultJson.each {
       print “${it.key}”
    }
