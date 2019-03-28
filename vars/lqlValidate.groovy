@@ -4,6 +4,8 @@ def call(String token, String testParam, String fileName) {
 
     def fileContents = readFile fileName+".json"
     print(fileContents)
+    def queryParam = JsonSlurper().parseText(fileContents)
+    print(queryParam)
 
     def curlCommand = [
         "curl --show-error --fail",
