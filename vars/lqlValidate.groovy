@@ -25,8 +25,7 @@ def call(String token, String testParam, String fileName) {
 
 @NonCPS
 def getUserData(String fileName) {
-   sh "vi user_redshift.json"
-   def fileContent = new File("user_redshift.json").getText()
+   def fileContent = new File('user_redshift.json').getText()
    def jsonSlurper = new JsonSlurper() 
    def resultJson = jsonSlurper.parseText(fileContent)
    resultJson.each {
