@@ -8,7 +8,7 @@ def call(String token, String testParam, String fileName) {
     //Map queryParam = new HashMap<>(slurper.parseText(fileContents))
     //print(queryParam)
     print("before calling method")
-    def map = parseJson(fileName)
+    def map = getUserData(fileName)
     print(map)
     def curlCommand = [
         "curl --show-error --fail",
@@ -24,14 +24,11 @@ def call(String token, String testParam, String fileName) {
 
 
 @NonCPS
-def parseJson(String fileName){
-  print("insidemaethod")
-  def fileContents = readFile fileName+".json"
-  def lazyMap = new groovy.json.JsonSlurper().parseText(fileContents)
-  def map = [:]
-  for ( prop in lazyMap ) {
-      map[prop.key] = prop.value
-  }
-  print("THE MAP ---->"+map)
-  return map;
+def getUserData(String fileName) {
+   def fileContent = new file(fileName+'.json')
+   def jsonSlurper = new JsonSlurper() 
+   def resultJson = jsonSlurper.parseText(json)
+   resultJson.each {
+      print “${it.key}”
+   }
 }
