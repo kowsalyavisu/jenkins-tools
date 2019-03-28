@@ -4,7 +4,8 @@ def call(String token, String testParam, String fileName) {
 
     def fileContents = readFile fileName+".json"
     print(fileContents)
-    def queryParam = new JsonSlurper().parseText(fileContents)
+    final slurper = new JsonSlurper()
+    def queryParam = new HashMap<>(slurper.parseText(jsonText))
     print(queryParam)
 
     def curlCommand = [
