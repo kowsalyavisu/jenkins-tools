@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
-def call(String token, String testParam, String fileName) {
+def call(String token, String testParam, String fileName, String env) {
 
     //def fileContents = readFile fileName+".json"
     //print(fileContents)
@@ -8,7 +8,7 @@ def call(String token, String testParam, String fileName) {
     //Map queryParam = new HashMap<>(slurper.parseText(fileContents))
     //print(queryParam)
     print("before calling method")
-    def map = getUserData(fileName)
+    def map = getUserData(fileName, env)
     print(map)
     def curlCommand = [
         "curl --show-error --fail",
@@ -25,7 +25,8 @@ def call(String token, String testParam, String fileName) {
 
 @NonCPS
 def getUserData(String fileName) {
-   String fileContent = new File("${env.WORKSPACE}"+"/"+fileName+".json").text
+  print(env)
+   String fileContent = new File(fileName+".json").text
    def jsonSlurper = new JsonSlurper() 
    def resultJson = jsonSlurper.parseText(fileContent)
    resultJson.each {

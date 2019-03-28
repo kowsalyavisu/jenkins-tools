@@ -11,7 +11,7 @@ def call() {
     }
 
     stage('test-lytics') {
-      lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}")    
+      lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}", "${env.WORKSPACE}")    
     }
 
 
