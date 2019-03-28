@@ -7,6 +7,7 @@ def call(String token, String testParam, String fileName) {
     //final slurper = new JsonSlurperClassic()
     //Map queryParam = new HashMap<>(slurper.parseText(fileContents))
     //print(queryParam)
+    print("before calling method")
     def map = parseJson(fileName)
     print(map)
     def curlCommand = [
@@ -24,6 +25,7 @@ def call(String token, String testParam, String fileName) {
 
 @NonCPS
 def parseJson(String fileName){
+  pribt("insidemaethod")
   def fileContents = readFile fileName+".json"
   def lazyMap = new groovy.json.JsonSlurper().parseText(fileContents)
   def map = [:]
