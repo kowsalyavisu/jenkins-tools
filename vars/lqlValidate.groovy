@@ -12,7 +12,7 @@ def call(String token, String testParam, String fileName, String env) {
     print(map)
     def curlCommand = [
         "curl --show-error --fail",
-        "-XPOST 'https://api.lytics.io/api/query/_test?email=test@test.com&ucdmid=ucdmid"+testParam+"'",
+        "-XPOST 'https://api.lytics.io/api/query/_test?"+map+"'",
         "-H 'Content-type: application/json'",
         "-H 'Authorization: "+token+"'",
         "--data-binary @"+fileName+".lql"
@@ -32,4 +32,5 @@ def getUserData(String fileName, String env) {
    print("result-->"+resultJson)
    def res = resultJson.collect { it }.join('&')
    print(res)
+   return res
 }
