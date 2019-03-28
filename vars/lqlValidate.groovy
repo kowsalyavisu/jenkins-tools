@@ -25,13 +25,13 @@ def call(String token, String testParam, String fileName) {
 
 @NonCPS
 def parseJson(String fileName){
-  pribt("insidemaethod")
+  print("insidemaethod")
   def fileContents = readFile fileName+".json"
   def lazyMap = new groovy.json.JsonSlurper().parseText(fileContents)
   def map = [:]
   for ( prop in lazyMap ) {
       map[prop.key] = prop.value
   }
-  print(map)
+  print("THE MAP ---->"+map)
   return map;
 }
