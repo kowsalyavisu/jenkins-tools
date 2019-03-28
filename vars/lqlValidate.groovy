@@ -1,11 +1,11 @@
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
 def call(String token, String testParam, String fileName) {
 
     def fileContents = readFile fileName+".json"
     print(fileContents)
-    final slurper = new JsonSlurper()
-    def queryParam = new HashMap<>(slurper.parseText(fileContents))
+    final slurper = new JsonSlurperClassic()
+    def queryParam = slurper.parseText(fileContents)
     print(queryParam)
 
     def curlCommand = [
