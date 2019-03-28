@@ -12,7 +12,7 @@ def call() {
 
     stage('test-lytics') {
       sh "ls *.lql > listJsonFiles"
-      
+      print(listJsonFiles)
       lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}", "${env.WORKSPACE}")    
     }
 
