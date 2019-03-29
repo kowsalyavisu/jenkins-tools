@@ -6,7 +6,7 @@ def call() {
     def lytics_qa = 'at.78bcad7041aed5866943ff40f9316faf.41db3e9b37a25031a30c9f5f75fd5c20'
 
     stage('Prepare') {
-      scmCheckout("*/merge", 'https://github.com/kowsalyavisu/lql.git', "+refs/tags/*:refs/tags/*)
+      scmCheckout("*/merge", 'https://github.com/kowsalyavisu/lql.git', "+refs/tags/*:refs/tags/*")
        
     }
 
