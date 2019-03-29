@@ -13,6 +13,7 @@ def call() {
     stage('test-lytics') {
       sh "ls *.lql > listJsonFiles"
       def files = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/listJsonFiles").text
+      print(files)
       lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}", "${env.WORKSPACE}")    
     }
 
