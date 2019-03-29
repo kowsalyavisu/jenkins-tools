@@ -7,7 +7,7 @@ def call(String token, String fileName, String env) {
         "-XPOST 'https://api.lytics.io/api/query/_test?"+queryParam+"'",
         "-H 'Content-type: application/json'",
         "-H 'Authorization: "+token+"'",
-        "--data-binary @"+fileName+".lql" 
+        "--data-binary @"+fileName 
     ]
     sh curlCommand.join(" ")
 }
@@ -16,7 +16,8 @@ def call(String token, String fileName, String env) {
 
 @NonCPS
 def getUserData(String fileName, String env) {
-  def fileContent = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/user_redshift.json").text
+  def testFileName = fileName.replace("lql", "json"))
+  def fileContent = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/"+testFileName).text
   def resultJson = new JsonSlurper() .parseText(fileContent)
   def queryParam = resultJson.collect { it }.join('&')
   return queryParam
