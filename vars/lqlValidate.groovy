@@ -16,7 +16,7 @@ def call(String token, String fileName, String env) {
 
 @NonCPS
 def getUserData(String fileName, String env) {
-  def testFileName = fileName.replace("lql", "json"))
+  def testFileName = fileName.replace("lql", "json")
   def fileContent = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/"+testFileName).text
   def resultJson = new JsonSlurper() .parseText(fileContent)
   def queryParam = resultJson.collect { it }.join('&')
