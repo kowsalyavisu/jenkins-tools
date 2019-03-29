@@ -6,13 +6,13 @@ def call() {
     def lytics_qa = 'at.78bcad7041aed5866943ff40f9316faf.41db3e9b37a25031a30c9f5f75fd5c20'
 
     stage('Prepare') {
-      scmCheckout("origin/pr/1/merge", 'https://github.com/kowsalyavisu/lql.git', "+refs/pull/*:refs/remotes/origin/pr/*")
+      scmCheckout("*/merge", 'https://github.com/kowsalyavisu/lql.git', "+refs/tags/*:refs/tags/*)
        
     }
 
     stage('test-lytics') {
       sh "ls *.lql > listJsonFiles"
-      print(listJsonFiles)
+      def files = new File("/Users/kviswanathan/.jenkins/workspace/test-pipe/listJsonFiles").text
       lqlValidate(lytics_dev, "${env.testParam}", "${env.fileName}", "${env.WORKSPACE}")    
     }
 
