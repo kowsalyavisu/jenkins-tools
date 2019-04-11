@@ -20,6 +20,10 @@ def call() {
     }
 
 
+    stage('Deploy') {
+      approve()
+    }
+
   }
   catch (err) {
     throw err
