@@ -50,6 +50,7 @@ def updateLqlQuery(String token, String fileName) {
             "-H 'Authorization: "+token+"'",
             "--data-binary @"+fileName
     ]
+    print(curlCommand)
     sh curlCommand.join(" ")
 }
 
