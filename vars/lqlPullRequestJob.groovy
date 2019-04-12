@@ -21,7 +21,13 @@ def call() {
 
 
     stage('Deploy') {
-      approve()
+      def fileName = approve()
+      print(fileName)
+      def filesNames = fileName.split(',')
+      filesNames.each
+      {
+        String line -> print(line)
+      }
     }
 
   }
