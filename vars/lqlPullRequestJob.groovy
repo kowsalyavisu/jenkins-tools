@@ -48,7 +48,7 @@ def updateLqlQuery(String token, String fileName) {
             "-XPOST 'https://api.lytics.io/api/query?version=new",
             "-H 'Content-type: application/json'",
             "-H 'Authorization: "+token+"'",
-            "--data-binary @"+fileName
+            "--data-binary @"+fileName.trim()
     ]
     print(curlCommand)
     sh curlCommand.join(" ")
