@@ -21,13 +21,19 @@ def call() {
 
 
     stage('Deploy') {
-      def fileName = approve()
-      print(fileName)
-      def filesNames = fileName.split(',')
-      filesNames.each
-      {
-        String line -> print(line)
-        updateLqlQuery(lytics_dev, line)
+      def approvedUser = ['kviswanathan', 'admin']
+      if( approvedUser.contains(${user}) { 
+        def fileName = approve()
+        print(fileName)
+        def filesNames = fileName.split(',')
+        filesNames.each
+        {
+          String line -> print(line)
+          updateLqlQuery(lytics_dev, line)
+        }
+      }
+      else {
+        echo "Access denied"
       }
     }
 
