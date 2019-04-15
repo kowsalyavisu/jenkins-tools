@@ -24,12 +24,14 @@ def call() {
       def users = "${user}"
       if( users == 'kviswanathan' || users == 'krajasekaran' || users == 'sjadhav' ) { 
         def fileName = approve()
-        print(fileName)
-        def filesNames = fileName.split(',')
-        filesNames.each
-        {
-          String line -> print(line)
-          updateLqlQuery(lytics_dev, line)
+        if(fileName != null) {
+          print(fileName)
+          def filesNames = fileName.split(',')
+          filesNames.each
+          {
+            String line -> print(line)
+            updateLqlQuery(lytics_dev, line)
+          }
         }
       }
       else {

@@ -8,7 +8,6 @@ def call() {
                 [$class: 'StringParameterDefinition', description: '', name: 'fileName']])
     } catch(err) { // input false
         def user = err.getCauses()[0].getUser()
-        userInput = ''
         echo "Aborted by: [${user}]"
     }
     print("user input: "+userInput)
