@@ -21,11 +21,7 @@ def call() {
 
 
     stage('Deploy') {
-      def approvedUser = ['kviswanathan', 'admin', 'null']
-      print("${user}")
-      echo "${approvedUser}"
-      def users = "${user}"
-      if( users == 'null' || users == 'krajasekaran' || users == 'sjadhav' ) { 
+      if( users == 'kviswanathan' || users == 'krajasekaran' || users == 'sjadhav' ) { 
         def fileName = approve()
         print(fileName)
         def filesNames = fileName.split(',')
