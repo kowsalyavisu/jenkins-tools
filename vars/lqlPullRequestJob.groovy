@@ -22,6 +22,8 @@ def call() {
 
     stage('Deploy') {
       def approvedUser = ['kviswanathan', 'admin', 'null']
+      echo '${user}'
+      echo '${approvedUser}'
       if( approvedUser.contains('${user}') ) { 
         def fileName = approve()
         print(fileName)
