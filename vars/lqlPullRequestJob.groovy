@@ -24,7 +24,7 @@ def call() {
       def approvedUser = ['kviswanathan', 'admin', 'null']
       print("${user}")
       echo "${approvedUser}"
-      def users = "kviswanathan"
+      def users = "${user}"
       if( approvedUser.contains(users) ) { 
         def fileName = approve()
         print(fileName)
