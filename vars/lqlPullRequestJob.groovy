@@ -21,7 +21,8 @@ def call() {
 
 
     stage('Deploy') {
-      if( users == 'kviswanathan' || users == 'krajasekaran' || users == 'sjadhav' ) { 
+      def users = "${user}"
+      if( users == 'null' || users == 'krajasekaran' || users == 'sjadhav' ) { 
         def fileName = approve()
         print(fileName)
         def filesNames = fileName.split(',')
