@@ -22,7 +22,7 @@ def call() {
 
     stage('Deploy') {
       def approvedUser = ['kviswanathan', 'admin']
-      if( approvedUser.contains(${user}) { 
+      if( approvedUser.contains(${user}) ) { 
         def fileName = approve()
         print(fileName)
         def filesNames = fileName.split(',')
