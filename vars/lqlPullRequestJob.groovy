@@ -22,7 +22,7 @@ def call() {
 
     stage('Deploy') {
       def approvedUser = ['kviswanathan', 'admin', 'null']
-      print(${user})
+      print("${user}")
       echo ${approvedUser}
       if( approvedUser.contains('${user}') ) { 
         def fileName = approve()
